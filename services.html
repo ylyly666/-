@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- 在其他 meta 标签后添加 -->
+    <link rel="preload" as="image" href="static/picture/1岁差(1).png">
+    <link rel="preload" as="image" href="static/picture/2浑天仪(1).png">
+    <link rel="preload" as="image" href="static/picture/3月食(1).png">
+    <link rel="preload" as="image" href="static/picture/4割圆(1).png">
+    <link rel="preload" as="image" href="static/picture/梅氏算学(1).png">
+
+    <!-- 添加性能优化相关的样式 -->
+    <style>
+        .gallery-container {
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        .gallery-item img {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item img.loaded {
+            opacity: 1;
+        }
+    </style>
+
+    <!-- page title -->
+    <title>走近王贞仪</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
+    <!-- css files -->
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/font-awesome-6.5.2.css">
+    <link rel="stylesheet" href="static/css/remixicon.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+    <link rel="stylesheet" href="static/css/meanmenu.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body class="default">
+    <!-- preloader starts -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <div class="procus-cursor"></div>
+    <div class="procus-cursor2"></div>
+
+    <div class="theme-color-switch">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <span class="ball"></span>
+        </label>
+    </div>
+
+    <!-- header area starts -->
+    <header class="header-area">
+        <!-- menu area -->
+        <div class="menu-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <div class="logo-area">
+                            <a class="dark-version" href=""> <img src="static/picture/logo1.png" alt="logo"></a>
+                            <a class="light-version" href=""> <img src="static/picture/logo2.png" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <nav id="mobile-menu">
+                            <ul class="main-menu">
+                                <li><a href="index.html">首页</a></li>
+                                <li class="has-submenu"><a href="services.html">走近王贞仪</a>
+                                    <ul class="submenu">
+                                        <li><a href="services.html#biography">人物生平</a></li>
+                                        <li><a href="services.html#achievements">科学成就</a></li>
+                                        <li><a href="services.html#relationships">人物关系</a></li>
+                                        <li><a href="services.html#historical-evaluation">历史评价</a></li>
+                                        <li><a href="services.html#era-characteristics">时代特征</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="team-single.html">项目介绍</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="nav-right-content">
+                            <a href="team-single.html" class="primary-btn">联系我们&nbsp;<span><i class="ri-arrow-right-up-line"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-menu"></div>
+        </div>
+    </header>
+
+    <!-- breadcrumb starts -->
+    <section class="breadcrumb-section custom-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h1 class="text-white">王贞仪：“闺阁狂士”</h1>
+                        <ul class="breadcrumb-meta">
+                            <li><a href="index.html" class="text-white">首页</a></li>
+                            <li><span class="text-white"><i class="fa-solid fa-angle-right"></i></span></li>
+                            <li class="active text-white">走近王贞仪</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 添加自定义样式 -->
+    <style>
+        .breadcrumb-section.custom-bg {
+            background-image: url('static/image/王贞仪首图修改版.jpg');
+            background-size: cover;
+            background-position: top center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 180px 0 100px;
+            height: 650px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        /* 夜间模式背景图 */
+        body.default .breadcrumb-section.custom-bg {
+            background-image: url('static/image/王贞仪首图修改版.jpg');
+        }
+
+        /* 日间模式背景图 */
+        body.light-theme .breadcrumb-section.custom-bg {
+            background-image: url('static/image/王贞仪首图修改版.jpg'); 
+        }
+
+        /* 基础遮罩样式 */
+        .breadcrumb-section.custom-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.3) 30%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: 0;
+        }
+
+        /* 日间模式遮罩调整 */
+        body.light-theme .breadcrumb-section.custom-bg::before {
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.1) 30%,
+                rgba(255, 255, 255, 0.2) 100%
+            );
+        }
+
+        .breadcrumb-section.custom-bg .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb-content {
+            padding-bottom: 30px;
+        }
+
+        .breadcrumb-section.custom-bg .text-white {
+            color: #ffffff !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb-section.custom-bg h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+
+    <section class="service-area pt-110 pb-90">
+        <img src="static/picture/service-3d.png" alt="service-3d" class="service-3d">
+
+    <!-- 人物生平时间轴开始 -->
+    <section id="biography" class="relationship-chart pt-80 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="section-top text-center">
+                        <h2>王贞仪<span>生平时间轴</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-40">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="chart-container" style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(142, 54, 148, 0.1);">
+                        <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2:2PACX-1vR-nf1pad7L_xdzTVUHCa2MEZMCgYMDR81rNZXBh79P0e-tczqy77NbzAwKJJecX1aDyiUw4hZA0SM9&font=Default&lang=en&initial_zoom=2&height=650' 
+                                width='100%' 
+                                height='650' 
+                                style="border: none; border-radius: 8px;"
+                                webkitallowfullscreen 
+                                mozallowfullscreen 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 人物生平时间轴结束 -->
+
+    <!-- 成就总览图表开始 -->
+    <section id="achievements" class="relationship-chart pt-80 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="section-top text-center">
+                        <h2>王贞仪<span>成就总览</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-40">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="chart-container" style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(142, 54, 148, 0.1);">
+                        <div class="flourish-embed flourish-hierarchy" data-src="visualisation/22579964">
+                            <script src="https://public.flourish.studio/resources/embed.js"></script>
+                            <noscript><img src="https://public.flourish.studio/visualisation/22579964/thumbnail" width="100%" alt="hierarchy visualization" /></noscript>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 成就总览图表结束 -->
+
+    <!-- 学术成就图表开始 -->
+    <section id="scientific-achievements" class="relationship-chart pt-80 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="section-top text-center">
+                        <h2>王贞仪<span>科学成就</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-40">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="chart-container" style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(142, 54, 148, 0.1);">
+                        <!-- 优化图片加载 -->
+                        <div class="gallery-container">
+                            <div class="gallery">
+                                <!-- 优化图片加载 -->
+                                <div class="gallery-item">
+                                    <img src="static/picture/1岁差(1).png" alt="岁差理论" 
+                                         loading="lazy" 
+                                         decoding="async" 
+                                         width="300" 
+                                         height="400">
+                                    <div class="overlay">
+                                        <h3>岁差</h3>
+                                        <p>王贞仪认为赤道在天周中央，黄道则一半在赤道之南，一半在赤道之北，在北边靠近北极的是星宿的位置，在南边远离北极的是斗牛星的位置。并且王贞仪曾尝试用里差之法推演，北极的位置随所处之地而不同，天顶也随着所在位置不同，昼夜长短节气迟早都由此而产生。</p>
+                                    </div>
+                                </div>
+
+                                <div class="gallery-item">
+                                    <img src="static/picture/2浑天仪(1).png" alt="浑天仪研究"
+                                         loading="lazy"
+                                         decoding="async"
+                                         width="300"
+                                         height="400">
+                                    <div class="overlay">
+                                        <h3>黄赤二道</h3>
+                                        <p>王贞仪曾通过实验，用凹镜代替浑天仪，模拟黄赤二道的运行过程，来推验古书中对黄赤二道的记载。“余尝以凹镜之旁与心譬之，凹镜体圆，而凹有釜状。”“浑天仪与地相应，北极当在镜之中心，南极当在镜之旁至，中心以其中界之周围为东西南北一轮，则赤道也。”</p>
+                                    </div>
+                                </div>
+
+                                <div class="gallery-item">
+                                    <img src="static/picture/3月食(1).png" alt="月食研究"
+                                         loading="lazy"
+                                         decoding="async"
+                                         width="300"
+                                         height="400">
+                                    <div class="overlay">
+                                        <h3>月食</h3>
+                                        <p>王贞仪在《德风亭初集》卷七《月食解》一章中对月食这一现象的产生及发展做了详细的阐释。并且王贞仪曾经通过模拟实验考证过月亮能够掩住太阳，太阳也可以盖住月亮，太阳距离远月亮距离近的运行过程。</p>
+                                    </div>
+                                </div>
+
+                                <div class="gallery-item">
+                                    <img src="static/picture/4割圆(1).png" alt="数学研究"
+                                         loading="lazy"
+                                         decoding="async"
+                                         width="300"
+                                         height="400">
+                                    <div class="overlay">
+                                        <h3>三角函数</h3>
+                                        <p>王贞仪在《德风亭初集》卷七《勾股三角解》一章中对勾股三角进行了详细的阐释。“测量家测高用立矩，测深用覆矩，测远者用偃矩，测圆者用割矩，测险者用重差，测算者用八线，测度者用三角。”</p>
+                                    </div>
+                                </div>
+
+                                <div class="gallery-item">
+                                    <img src="static/picture/梅氏算学(1).png" alt="天文著作"
+                                         loading="lazy"
+                                         decoding="async"
+                                         width="300"
+                                         height="400">
+                                    <div class="overlay">
+                                        <h3>梅氏算学</h3>
+                                        <p>王贞仪在对于梅氏算学进行研究时，根据心得体会，对梅氏算学择其精要，删繁就简，重新著述。她曾根据梅文鼎的《历算》一书，将自己多年潜心研究成果著成《历算简存》五卷，可惜现已不存。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 学术成就展示结束 -->    
+
+    <!-- 人物关系图表开始 -->
+    <!-- 人物关系图表开始 -->
+    <section id="relationships" class="relationship-chart pt-80 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="section-top text-center">
+                        <h2>王贞仪<span>人物关系</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-40">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="chart-container" style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(142, 54, 148, 0.1);">
+                        <iframe src='https://flo.uri.sh/visualisation/22579999/embed' 
+                                title='Interactive or visual content' 
+                                class='flourish-embed-iframe' 
+                                frameborder='0' 
+                                scrolling='no' 
+                                style='width:100%;height:600px;' 
+                                sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'>
+                        </iframe>
+                        <div style='width:100%;margin-top:4px;text-align:right;'>
+                            <a class='flourish-credit' href='https://public.flourish.studio/visualisation/22579999/' target='_top' style='text-decoration:none;'>
+                                <img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px;height:16px;border:none;margin:0;'>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 人物关系图表结束 -->
+
+    <!-- 历史评价图表开始 -->
+    <section id="historical-evaluation" class="relationship-chart pt-80 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="section-top text-center">
+                        <h2>王贞仪<span>历史评价</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-40">
+                <div class="col-lg-10 offset-lg-1">
+                    
+                    <div class="chart-container" style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(142, 54, 148, 0.1);">
+                        <div class='tableauPlaceholder' id='viz1744791153316' style='position: relative'><noscript>< img alt='工作表 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;22&#47;22_17444402709230&#47;1&#47;1_rss.png' style='border: none' /></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='22_17444402709230&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;22&#47;22_17444402709230&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-CN' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744791153316');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 历史评价图表结束 -->
+
+    <!-- 时代特征图表开始 -->
+    <section id="era-characteristics" class="relationship-chart pt-80 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="section-top text-center">
+                        <h2>王贞仪<span>时代特征</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-40">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="chart-container" style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 0 30px rgba(142, 54, 148, 0.1);">
+                        <div class='tableauPlaceholder' id='viz1744791044037' style='position: relative'><noscript>< img alt='工作表 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17447909738440&#47;1&#47;1_rss.png' style='border: none' /></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_17447909738440&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17447909738440&#47;1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-CN' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744791044037');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+    <!-- 时代特征图表结束 -->
+    
+    <!-- marquee area starts -->
+    <div class="custom-marquee">
+        <div class="marquee-container">
+            <div class="marquee">
+                <div class="primary-bg">
+                    <div class="marquee-content marquee-row-1">
+                        <span><i class="ri-gemini-fill"></i> 楚衍之女 <span></span><i class="ri-gemini-fill"></i> 马蓬瀛 <span></span><i class="ri-gemini-fill"></i> 江蕙 <span></span><i class="ri-gemini-fill"></i> 王贞仪 <span></span><i class="ri-gemini-fill"></i> 王锡蕙 <span></span><i class="ri-gemini-fill"></i> 黄道婆 <span></span><i class="ri-gemini-fill"></i> 葛宜 <span></span><i class="ri-gemini-fill"></i> 沈绮 <span></span><i class="ri-gemini-fill"></i> 班昭</span>
+                        <span><i class="ri-gemini-fill"></i> 楚衍之女 <span></span><i class="ri-gemini-fill"></i> 马蓬瀛 <span></span><i class="ri-gemini-fill"></i> 江蕙 <span></span><i class="ri-gemini-fill"></i> 王贞仪 <span></span><i class="ri-gemini-fill"></i> 王锡蕙 <span></span><i class="ri-gemini-fill"></i> 黄道婆 <span></span><i class="ri-gemini-fill"></i> 葛宜 <span></span><i class="ri-gemini-fill"></i> 沈绮 <span></span><i class="ri-gemini-fill"></i> 班昭</span>
+                        <span><i class="ri-gemini-fill"></i> 楚衍之女 <span></span><i class="ri-gemini-fill"></i> 马蓬瀛 <span></span><i class="ri-gemini-fill"></i> 江蕙 <span></span><i class="ri-gemini-fill"></i> 王贞仪 <span></span><i class="ri-gemini-fill"></i> 王锡蕙 <span></span><i class="ri-gemini-fill"></i> 黄道婆 <span></span><i class="ri-gemini-fill"></i> 葛宜 <span></span><i class="ri-gemini-fill"></i> 沈绮 <span></span><i class="ri-gemini-fill"></i> 班昭</span>
+                    </div>
+                </div>
+                <div class="black-bg">
+                    <div class="marquee-content marquee-row-2">
+                        <span><i class="ri-gemini-fill"></i> 楚衍之女 <span></span><i class="ri-gemini-fill"></i> 马蓬瀛 <span></span><i class="ri-gemini-fill"></i> 江蕙 <span></span><i class="ri-gemini-fill"></i> 王贞仪 <span></span><i class="ri-gemini-fill"></i> 王锡蕙 <span></span><i class="ri-gemini-fill"></i> 黄道婆 <span></span><i class="ri-gemini-fill"></i> 葛宜 <span></span><i class="ri-gemini-fill"></i> 沈绮 <span></span><i class="ri-gemini-fill"></i> 班昭</span>
+                        <span><i class="ri-gemini-fill"></i> 楚衍之女 <span></span><i class="ri-gemini-fill"></i> 马蓬瀛 <span></span><i class="ri-gemini-fill"></i> 江蕙 <span></span><i class="ri-gemini-fill"></i> 王贞仪 <span></span><i class="ri-gemini-fill"></i> 王锡蕙 <span></span><i class="ri-gemini-fill"></i> 黄道婆 <span></span><i class="ri-gemini-fill"></i> 葛宜 <span></span><i class="ri-gemini-fill"></i> 沈绮 <span></span><i class="ri-gemini-fill"></i> 班昭</span>
+                        <span><i class="ri-gemini-fill"></i> 楚衍之女 <span></span><i class="ri-gemini-fill"></i> 马蓬瀛 <span></span><i class="ri-gemini-fill"></i> 江蕙 <span></span><i class="ri-gemini-fill"></i> 王贞仪 <span></span><i class="ri-gemini-fill"></i> 王锡蕙 <span></span><i class="ri-gemini-fill"></i> 黄道婆 <span></span><i class="ri-gemini-fill"></i> 葛宜 <span></span><i class="ri-gemini-fill"></i> 沈绮 <span></span><i class="ri-gemini-fill"></i> 班昭</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- get in touch area starts -->
+    <div class="get-in-touch-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 wow fadeIn" data-wow-delay=".2s">
+                    <a href="team-single.html" class="big-title"><span>Get in touch</span><span class="icon"><i class="ri-arrow-right-up-line"></i></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer area starts -->
+    <footer class="footer-area">
+        <!-- footer widget -->
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row footer-widget-wrapper pt-100 pb-70">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-widget-box about-us">
+                            <a href="index.html" class="footer-logo">
+                                <img src="static/picture/logo1.png" alt="logo">
+                            </a>
+                            <a href="index.html" class="footer-logo logo-black">
+                                <img src="static/picture/logo2.png" alt="logo">
+                            </a>
+                            <p>祝愿所有女性志在高远，获得所渴望、而非世俗意义之成功；成为自己、而非刻板印象所定义的女性；走到所向往、而远在一切界限以外的远方。</p>
+                            <ul class="footer-social">
+                                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2 offset-lg-1 offset-xl-2">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title">Quick Links</h4>
+                            <ul class="footer-list">
+                                <li><a href="about.html">About us</a></li>
+                                <li><a href="team.html">meet our team</a></li>
+                                <li><a href="case.html">case studies</a></li>
+                                <li><a href="blog.html">latest blog</a></li>
+                                <li><a href="contact.html">contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xl-2">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title">our services</h4>
+                            <ul class="footer-list">
+                                <li><a href="service-single.html">branding</a></li>
+                                <li><a href="service-single.html">web design</a></li>
+                                <li><a href="service-single.html">app design</a></li>
+                                <li><a href="service-single.html">saas development</a></li>
+                                <li><a href="service-single.html">digital marketing</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xl-2 offset-xl-1">
+                        <div class="footer-widget-box">
+                            <h4 class="footer-widget-title">Contact Us</h4>
+                            <ul class="footer-contact">
+                                <li><a href="#"><span class="contact-icon"><i class="fa-solid fa-phone"></i></span> (123) 456789000</a></li>
+                                <li><a href="#"><span class="contact-icon"><i class="fa-regular fa-envelope"></i></span><span> info@procus.com</span></a></li>
+                                <li><a href="#"><span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span> 1498w Fluton ste, STE 2D Chicgo, IL 63867.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- copyright -->
+        <div class="copyright">
+            <div class="container">
+                <div class="copyright-content">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <p class="copyright-text">
+                                Copyright &copy; 2024.Company name All rights reserved.<a target="_blank" href="https://www.genban.org/">
+                            </p>
+                        </div>
+                        <div class="col-lg-6 align-self-center">
+                            <ul class="footer-menu">
+                                <li><a href="terms.html">Terms Of Services</a></li>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="contact.html">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- back to top -->
+    <div class="back-to-top">
+        <span><i class="fa fa-angle-up"></i></span>
+    </div>
+
+    <!-- javascript files -->
+    <script src="static/js/jquery-2.2.4.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/font-awesome-6.5.2.js"></script>
+    <script src="static/js/counterup.min.js"></script>
+    <script src="static/js/magnific-popup.js"></script>
+    <script src="static/js/mousemove.js"></script>
+    <script src="static/js/meanmenu.min.js"></script>
+    <script src="static/js/slick.min.js"></script>
+    <script src="static/js/easing.min.js"></script>
+    <script src="static/js/waypoints.min.js"></script>
+    <script src="static/js/wow.min.js"></script>
+    <script src="static/js/main.js"></script>
+
+    <!-- 添加画廊相关的脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryContainer = document.querySelector('.gallery-container');
+            const images = document.querySelectorAll('.gallery-item img');
+            
+            // 添加图片加载状态监控
+            images.forEach(img => {
+                // 如果图片已经加载完成
+                if(img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', () => {
+                        img.classList.add('loaded');
+                    });
+                    
+                    img.addEventListener('error', () => {
+                        console.error('图片加载失败:', img.src);
+                        img.src = 'static/picture/default-image.png';
+                    });
+                }
+            });
+
+            // 优化滚动处理 - 使用节流函数
+            let ticking = false;
+            
+            galleryContainer.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        const scrollAmount = e.deltaY > 0 ? 300 : -300;
+                        galleryContainer.scrollBy({
+                            left: scrollAmount,
+                            behavior: 'smooth'
+                        });
+                        ticking = false;
+                    });
+                    
+                    ticking = true;
+                }
+            }, { passive: false });
+        
+            // 触摸滑动优化
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+        
+            const startDragging = (e) => {
+                isDown = true;
+                galleryContainer.style.cursor = 'grabbing';
+                startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+                scrollLeft = galleryContainer.scrollLeft;
+            };
+        
+            const stopDragging = () => {
+                isDown = false;
+                galleryContainer.style.cursor = 'grab';
+            };
+        
+            const drag = (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                
+                const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+                const walk = (x - startX) * 1.5; // 减小乘数以降低灵敏度
+                
+                // 直接设置滚动位置，不使用requestAnimationFrame以减少延迟
+                galleryContainer.scrollLeft = scrollLeft - walk;
+            };
+        
+            // 事件监听
+            galleryContainer.addEventListener('mousedown', startDragging);
+            galleryContainer.addEventListener('touchstart', startDragging, {passive: true});
+            galleryContainer.addEventListener('mousemove', drag);
+            galleryContainer.addEventListener('touchmove', drag);
+            document.addEventListener('mouseup', stopDragging);
+            document.addEventListener('touchend', stopDragging);
+            
+            // 添加鼠标离开画廊时的处理
+            galleryContainer.addEventListener('mouseleave', stopDragging);
+        });
+    </script>
+
+</body>
+
+</html>
